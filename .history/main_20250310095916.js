@@ -19,6 +19,7 @@ async function translate(text, from, to, options) {
         requestUrl += "v1/";
     }
 
+
     requestUrl += `chat/completions?apiKey=${apiKey}&model=${modelName}`;
 
     // 构建 OpenAI 请求体
@@ -37,7 +38,7 @@ async function translate(text, from, to, options) {
 
     if (res.ok) {
         let result = await res.json();
-        if (result && result.choices && result.choices.length > 0 && result.choices[0].message && result.choices[0].message.content) {
+        if (result &amp;&amp; result.choices &amp;&amp; result.choices.length > 0 &amp;&amp; result.choices[0].message &amp;&amp; result.choices[0].message.content) {
             return result.choices[0].message.content;
         } else {
             throw JSON.stringify(result);
