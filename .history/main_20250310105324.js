@@ -22,9 +22,6 @@ async function translate(text, from, to, options) {
     requestUrl += `chat/completions`;
 
     const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
-    }
 
     const body = {
         model: modelName,
@@ -43,10 +40,7 @@ async function translate(text, from, to, options) {
     const res = await fetch(requestUrl, {
         method: 'POST',
         headers: headers,
-        body: {
-            type: "Json",
-            payload: body
-        }
+        body: JSON.stringify(body)
     });
 
     if (res.ok) {

@@ -60,4 +60,3 @@ async function translate(text, from, to, options) {
         let errorData = await res.json();
         throw `Http Request Error\nHttp Status: ${res.status}\n${JSON.stringify(errorData)}`;
     }
-}
