@@ -19,31 +19,17 @@ async function translate(text, from, to, options) {
         requestUrl += "v1/";
     }
 
-    requestUrl += `chat/completions`;
-
-    const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
-    }
-
-    const body = {
+    const requestBody = {
         model: modelName,
-        messages: [
-            {
-                "role": "system",
-                "content": finalPrompt,
-            },
-            {
-                "role": "user",
-                "content": text,
-            }
-        ]
+        messages: [{ role: "user", content: finalPrompt }],
     };
 
     const res = await fetch(requestUrl, {
         method: 'POST',
-        headers: headers,
-        body: JSON.stringify(body)
+        body: JSON.stringify(requestBody),
+        headers: {
+            'Content-Type': 'application/json'
+        }
     });
 
     if (res.ok) {

@@ -30,21 +30,6 @@ async function translate(text, from, to, options) {
         model: modelName,
         messages: [
             {
-                "role": "system",
-                "content": finalPrompt,
-            },
-            {
-                "role": "user",
-                "content": text,
-            }
-        ]
-    };
-
-    const res = await fetch(requestUrl, {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify(body)
-    });
 
     if (res.ok) {
         let result = await res.json();

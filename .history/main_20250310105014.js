@@ -1,5 +1,4 @@
 async function translate(text, from, to, options) {
-    const { config, utils } = options;
     const { tauriFetch: fetch } = utils;
     let { requestPath: url, apiKey, modelName, customPrompt } = config;
 
@@ -48,7 +47,7 @@ async function translate(text, from, to, options) {
 
     if (res.ok) {
         let result = await res.json();
-        if (result && result.choices && result.choices.length > 0 && result.choices[0].message && result.choices[0].message.content) {
+        if (result &amp;&amp; result.choices &amp;&amp; result.choices.length > 0 &amp;&amp; result.choices[0].message &amp;&amp; result.choices[0].message.content) {
             return result.choices[0].message.content;
         } else {
             throw JSON.stringify(result);
