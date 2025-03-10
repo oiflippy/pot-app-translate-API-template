@@ -58,6 +58,3 @@ async function translate(text, from, to, options) {
         }
     } else {
         let errorData = res.data; // 直接访问 data 字段
-        throw `Http Request Error\nHttp Status: ${res.status}\n${JSON.stringify(errorData)}`;
-    }
-}
