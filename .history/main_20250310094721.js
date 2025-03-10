@@ -13,7 +13,6 @@ async function translate(text, from, to, options) {
     if (!url.startsWith("http")) {
         url = `https://${url}`;
     }
-    // 检查 URL 是否以斜杠结尾，如果不是则添加斜杠
 
     // 构造请求 URL，包含 apiKey 和 modelName
     const requestUrl = `${url}/api/v1/${from}/${to}/${encode_text}?apiKey=${apiKey}&modelName=${modelName}`;
